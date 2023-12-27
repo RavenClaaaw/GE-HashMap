@@ -9,6 +9,8 @@ public class HMap {
         String text = "  I live in Surat. Surat is an amazing place. Surat is safe. I enjoy living in Surat.  ??";
         functions.findFrequency(text);
         functions.findIndex(text);
+
+        functions.removeWord(text, "Surat");
     }
 
     public void findFrequency(String text){
@@ -21,6 +23,8 @@ public class HMap {
         System.out.println(Arrays.toString(words));
 
         for(String word : words) frequency.put(word, frequency.getOrDefault(word, 0) + 1);
+
+        System.out.println("\nFREQUENCY:- ");
         System.out.println(frequency.toString());
     }
 
@@ -40,7 +44,24 @@ public class HMap {
             indexes.get(words[i]).add(i);
         }
 
+        System.out.println("\nINDEXES:- ");
         System.out.println(indexes.toString());
+    }
+
+    public String removeWord(String text, String removeWord){
+        String cleantext = cleanText(text);
+        String[] words = cleantext.split("\\s");
+
+        ArrayList<String> tokens = new ArrayList<>();
+        for(String word : words){
+            if(removeWord.compareToIgnoreCase(word) != 0){
+                tokens.add(word);
+            }
+        }
+
+        String processed = String.join(" ", tokens);
+        System.out.printf("\nWORD REMOVAL:- (%s) = %s", removeWord, processed);
+        return processed;
     }
 
     public String cleanText(String text){
