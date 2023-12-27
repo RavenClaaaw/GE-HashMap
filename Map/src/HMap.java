@@ -7,11 +7,11 @@ public class HMap {
         HMap functions = new HMap();
 
         String text = "  I live in Surat. Surat is an amazing place. Surat is safe. I enjoy living in Surat.  ??";
-        functions.frequency(text);
+        functions.findFrequency(text);
         functions.findIndex(text);
     }
 
-    public void frequency(String text){
+    public void findFrequency(String text){
         // Find Frequency:-
         HashMap<String, Integer> frequency = new HashMap<>();
 
