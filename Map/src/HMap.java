@@ -49,8 +49,6 @@ public class HMap {
     }
 
     public String removeWord(String text, String removeWord){
-        HashMap<String, Boolean> frequency = new HashMap<>();
-
         String cleantext = cleanText(text);
         String[] words = cleantext.split("\\s");
 
